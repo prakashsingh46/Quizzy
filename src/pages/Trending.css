@@ -1,0 +1,234 @@
+.trending-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 6rem 2rem 2rem 2rem;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.trending-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.trending-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: white;
+}
+
+.trending-title {
+  font-size: 3rem;
+  margin: 0 0 1rem 0;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.trending-tagline {
+  font-size: 1.3rem;
+  margin: 0;
+  opacity: 0.95;
+}
+
+.trending-loading,
+.trending-error {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: white;
+}
+
+.loader-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1.5rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.trending-loading p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.trending-error {
+  background: rgba(244, 67, 54, 0.2);
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.trending-error p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.trending-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.trending-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.5s ease-out backwards;
+}
+
+.trending-card:nth-child(1) { animation-delay: 0.05s; }
+.trending-card:nth-child(2) { animation-delay: 0.1s; }
+.trending-card:nth-child(3) { animation-delay: 0.15s; }
+.trending-card:nth-child(4) { animation-delay: 0.2s; }
+.trending-card:nth-child(5) { animation-delay: 0.25s; }
+.trending-card:nth-child(6) { animation-delay: 0.3s; }
+.trending-card:nth-child(7) { animation-delay: 0.35s; }
+.trending-card:nth-child(8) { animation-delay: 0.4s; }
+.trending-card:nth-child(9) { animation-delay: 0.45s; }
+.trending-card:nth-child(10) { animation-delay: 0.5s; }
+.trending-card:nth-child(11) { animation-delay: 0.55s; }
+.trending-card:nth-child(12) { animation-delay: 0.6s; }
+
+.trending-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.trending-card:hover::before {
+  transform: scaleX(1);
+}
+
+.trending-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.trending-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.trending-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.trending-card-title {
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.trending-card-description {
+  font-size: 0.95rem;
+  margin: 0 0 1.25rem 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+.trending-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.trending-category {
+  font-size: 0.85rem;
+  color: #667eea;
+  font-weight: 600;
+  background: rgba(102, 126, 234, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+}
+
+.trending-arrow {
+  font-size: 1.25rem;
+  color: #667eea;
+  transition: transform 0.3s ease;
+}
+
+.trending-card:hover .trending-arrow {
+  transform: translateX(5px);
+}
+
+/* Trend-specific styles */
+.trending-card.hot {
+  border: 2px solid transparent;
+}
+
+.trending-card.hot:hover {
+  border-color: #FF5722;
+}
+
+.trending-card.rising {
+  border: 2px solid transparent;
+}
+
+.trending-card.rising:hover {
+  border-color: #4CAF50;
+}
+
+.trending-card.steady {
+  border: 2px solid transparent;
+}
+
+.trending-card.steady:hover {
+  border-color: #2196F3;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .trending-page {
+    padding: 5rem 1rem 1rem 1rem;
+  }
+
+  .trending-title {
+    font-size: 2rem;
+  }
+
+  .trending-tagline {
+    font-size: 1.1rem;
+  }
+
+  .trending-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .trending-card {
+    padding: 1.5rem;
+  }
+
+  .trending-card-title {
+    font-size: 1.2rem;
+  }
+}
